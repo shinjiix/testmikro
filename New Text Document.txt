@@ -1,0 +1,20 @@
+get-appxpackage *Microsoft.Windows.SecHealthUI* -allusers | foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+
+Add-AppxPackage -Register -DisableDevelopmentMode "C:\Windows\SystemApps\Microsoft.Windows.SecHealthUI_cw5n1h2txyewy\AppXManifest.xml"
+
+
+set-mppreference -uilockdown 
+
+Get-AppXPackage -AllUsers -Name Microsoft.SecHealthUI | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -Verbose}                                                         
+
+Get-AppxPackage Microsoft.SecHealtUI -ALLUsers | Reset-AppxPackage 
+
+Set-ExecutionPolicy Unrestricted
+
+Get-AppXPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}                                                                                              
+
+Get-AppxPackage Microsoft.SecHealthUI -AllUsers | Reset-AppxPackage   
+
+ VBoxManage dhcpserver add --netname CyberLab --ip 192.168.100.1 --netmask 255.255.255.0 --lowerip 192.168.100.10 --upperip 192.168.100.50 --enable                                                                            
+
+
